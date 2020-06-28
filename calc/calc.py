@@ -8,10 +8,13 @@ def application(environ, start_response):
     second_num = d.get('second_num', [''])[0]
     sum = 0
     mul = 0
-    if first_num.isdigit() and second_num.isdigit():
+    try:
         first_num, second_num = int(first_num), int(second_num)
         sum = first_num + second_num
         mul = first_num * second_num
+    except value error:
+        sum = -1
+	mul = -1
     response_body = html % {
         'sum' : sum,
         'mul' : mul,
